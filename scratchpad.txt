@@ -35,3 +35,22 @@ function twoNumberSum(array, targetSum) {
 
 let final = twoNumberSum(numberArray, target);
 console.log(final);
+
+
+
+
+
+  array.forEach(function(item, index){
+    let difference = targetSum - item;
+    let differenceIndex = array.indexOf(difference);
+
+  //if the number representing the difference is not in the array, the indexOf will be -1
+  //to prevent using the same number twice, include an additional AND condition that checks that the differenceIndex does not equal the current index iteration  
+  //if the conditions are met and a 'difference' is found that isn't also the current index, push that into the results array.
+  //Now I'm trying to get it to stop pushing into the results array after one go
+
+    if(differenceIndex > -1 && differenceIndex !== index){
+      result.push(array[index]);
+      result.push(array[differenceIndex]);      
+    }
+  });
