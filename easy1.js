@@ -3,35 +3,30 @@ const numberArray = [3, 5, -4, 8, 11, 1, -1, 6];
 const target = 10;
 
 function twoNumberSum(array, targetSum) {
-  let sum = 0;
-  let index1 = 0;
-  let index2 = 0;
-  let aLength = array.length;
-
-  while (targetSum != sum) {
   
-    while (index1 < aLength) {
-      
-      if(index2 === aLength){
-        index2 = 0;
-      }
+  //declare an empty array variable to store the two array indexes
+  let result = [];
 
-      while (index2 < aLength) {
-        index2++;
-        sum = array[index1] + array[index2];
-        console.log(sum);
-      }
-      console.log(sum);
-      index1++;
+  //for each item in the number array, find out if the difference between the number and the target is also in the array
+  //if a number representing the difference is in the array, then the numbered index of that number will be somewhere between 0 - array.length
+  
+  array.forEach(function(item, index){
+    let difference = targetSum - item;
+    let differenceIndex = array.indexOf(difference);
+
+  //if the number representing the difference is not in the array, the indexOf will be -1
+  //to prevent using the same number twice, include an additional AND condition that checks that the differenceIndex does not equal the current index iteration  
+  //if the conditions are met and a 'difference' is found that isn't also the current index, push that into the results array.
+  //I'm not sure why this is returning two indexes instead of one?
+
+    if(differenceIndex > -1 && differenceIndex !== index){
+      result.push(index);
+     // result.push(differenceIndex);
     }
+  });
 
-    if(index1 === aLength && index2 === aLength){
-        return [];
-    }
-
-  }
-  return [index1, index2];
+  return result;
 }
 
-let final = twoNumberSum(numberArray, target);
-console.log(final);
+console.log(twoNumberSum(numberArray, target));
+
