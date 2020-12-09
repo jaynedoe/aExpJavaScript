@@ -37,7 +37,7 @@ function twoNumberSum(array, targetSum) {
 // console.log(`Random array was: ${numberArray} and the target was ${target}`);
 
 
-// SECOND SOLUTION
+// SECOND SOLUTION - HASH TABLE
 
 function twoNumberSumming(array, targetSum) {
   for (let i = 0; i < array.length - 1; i++) {
