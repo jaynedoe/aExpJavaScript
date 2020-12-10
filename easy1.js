@@ -33,10 +33,6 @@ function twoNumberSum(array, targetSum) {
   return result;
 }
 
-// console.log(twoNumberSum(numberArray, target));
-// console.log(`Random array was: ${numberArray} and the target was ${target}`);
-
-
 // SECOND SOLUTION - HASH TABLE
 
 function twoNumberSumming(array, targetSum) {
